@@ -1,13 +1,13 @@
-# Title: Longest Common Subsequence using Dynamic Programming
+
 
 def lcs(X, Y):
     m = len(X)
     n = len(Y)
 
-    # Create DP table
+
     dp = [[0] * (n + 1) for _ in range(m + 1)]
 
-    # Fill the DP table
+
     for i in range(1, m + 1):
         for j in range(1, n + 1):
 
@@ -16,7 +16,6 @@ def lcs(X, Y):
             else:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 
-    # Find the LCS string
     i = m
     j = n
     lcs_string = ""
@@ -31,13 +30,11 @@ def lcs(X, Y):
         else:
             j -= 1
 
-    # Reverse the string
     lcs_string = lcs_string[::-1]
 
     return dp[m][n], lcs_string
 
 
-# Main program
 X = input("Enter first sequence: ")
 Y = input("Enter second sequence: ")
 
